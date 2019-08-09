@@ -14,9 +14,13 @@ class App extends Component {
     this.getMetaCopy()
   }
 
-  getMetaCopy = async () => {
-    this.setState({
-      appList: 'Hello, World!'
+  getMetaCopy = () => {
+    return fetch("http://127.0.0.1:3306/", { mode: 'no-cors' })
+    .then(response => response.json)
+    .then(res => {
+      this.setState({
+        appList: res
+      })
     })
   }
 
@@ -30,7 +34,7 @@ class App extends Component {
           <p>A tool is designed to make app approvals easier by consolidating all the data needed.</p>
         </div>
         <div>
-          <DataList state={this.state.appList} />
+          <DataList applist={this.state.appList} />
         </div>
       </div>
     );

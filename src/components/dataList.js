@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 class DataList extends Component {
   render() {
-    const testMess = this.props.appList
-
+    const appList = this.props.applist
+    console.log("applist", appList)
     return (
       <div>
-        {testMess}
+        Hello!
       </div>
     )
   }
